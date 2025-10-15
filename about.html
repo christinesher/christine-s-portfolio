@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+WRITTEN BY: Christine Sher
+EMAIL: ysher@uci.edu
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Christine Sher">
+  <meta name="description" content="Christine Sher's Portfolio - About Me">
+  <title>About - Christine Sher</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="mypfp.jpg" alt="Christine Sher" class="nav-avatar">
+        <a href="index.html">christine sher</a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="resume.pdf" target="_blank">Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-content">
+        <h2 class="about-title">About Me</h2>
+        <p class="about-text">
+          Born in Taiwan and moved to the U.S. during middle school, I've always been drawn to anything creative — from sketching to digital art. That curiosity slowly grew into a love for design and how art can shape the way people experience technology. I'm passionate about creating products that feel enjoyable, thoughtful, and visually pleasing to use.
+        </p>
+        <p class="about-text">
+          Outside of design, I'm a proud cat mom to a golden lilac British Shorthair. I love spending my free time hanging out with her, usually doing something completely random — and, of course, asking for food halfway through.
+        </p>
+        
+        <!-- Contact Information -->
+        <div class="contact-info">
+          <h3>Contact</h3>
+          <p><a href="mailto:christinesher8@gmail.com">christinesher8@gmail.com</a></p>
+          <p><a href="mailto:ysher@uci.edu">ysher@uci.edu</a></p>
+          <p><a href="https://www.linkedin.com/in/christinesher8" target="_blank">LinkedIn</a></p>
+        </div>
+        <!-- Contact Form -->
+        <div class="contact-form-section">
+          <h3>Get In Touch</h3>
+          <form action="https://formspree.io/f/movkyjdo" method="POST" class="contact-form">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="text" name="subject" placeholder="Subject" required>
+            </div>
+            <div class="form-group">
+              <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom JS -->
+  <script>
+    // Formspree will handle form submission
+  </script>
+</body>
+</html>
