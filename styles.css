@@ -16,7 +16,7 @@ body {
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 60px;
 }
 
 /* Navigation */
@@ -33,7 +33,7 @@ body {
 .nav-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -103,6 +103,12 @@ body {
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.hero .container {
+  width: 100%;
+  max-width: 1200px;
 }
 
 .hero-title {
@@ -130,11 +136,13 @@ body {
 .project-item {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 80px;
   margin-bottom: 120px;
   opacity: 1;
   transform: translateY(0);
   transition: all 0.6s ease;
+  max-width: 100%;
 }
 
 .project-item.animate-in {
@@ -149,6 +157,7 @@ body {
 .project-content {
   flex: 1;
   max-width: 500px;
+  margin: 0 auto;
 }
 
 .project-title {
@@ -197,6 +206,10 @@ body {
 .project-image {
   flex: 1;
   max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Smaller images for ROID and ExpressHands projects */
