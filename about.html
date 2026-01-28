@@ -24,6 +24,13 @@ EMAIL: ysher@uci.edu
   <link rel="stylesheet" href="styles.css">
   
   <style>
+    /* Smooth scroll behavior with snap */
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+    }
+    
     /* Apply Plus Jakarta Sans to all text */
     body {
       font-family: 'Plus Jakarta Sans', sans-serif !important;
@@ -59,6 +66,20 @@ EMAIL: ysher@uci.edu
         #CED6D9 50%, 
         #E6ECEE 75%, 
         #F5F9FC 100%);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    
+    /* Images section snap */
+    .images-section {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+    
+    /* Contact section snap */
+    .contact-section {
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
     }
     
     .contact-form-section {
@@ -91,10 +112,10 @@ EMAIL: ysher@uci.edu
         <div style="flex: 1; text-align: left;">
           <h2 class="about-title" style="text-align: left; margin-top: 0; margin-bottom: 1.5rem;">About Me</h2>
           <p class="about-text" style="text-align: left; margin-bottom: 1rem;">
-            Born in Taiwan and later moving to the U.S. in middle school, I've always loved anything creative — from sketching to digital art. As I got older, that interest shifted into understanding how people think and why they interact with technology the way they do. Now, I enjoy combining design with user research to create experiences that feel clear, thoughtful, and genuinely helpful.
-          </p>
+Growing up between Taiwan and the U.S. shaped how I observe people and figure out what actually matters to them. I bring that perspective into product and UX design, translating research and insights into intuitive, problem-solving products.
+
           <p class="about-text" style="text-align: left; margin-bottom: 0;">
-            Outside of design, I love to draw, ski, and spend time with Brûlée! (she's a British Shorthair)
+            Outside of design, you’ll usually find me drawing, skiing, or hanging out with Brûlée 🐱.          </p>
           </p>
         </div>
         <div style="flex-shrink: 0;">
@@ -104,49 +125,88 @@ EMAIL: ysher@uci.edu
     </div>
   </section>
 
-  <!-- Images Section -->
-  <section style="padding: 60px 0; background: #F5F9FC;">
+  <!-- Images Section - Polaroid Style -->
+  <section class="images-section" style="padding: 80px 0; min-height: 100vh; display: flex; align-items: center; background: radial-gradient(ellipse at center, #94AEC2 0%, #ADC2CC 25%, #CED6D9 50%, #E6ECEE 75%, #F5F9FC 100%);">
     <div class="container">
-      <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; text-align: center; margin-bottom: 2rem; color: #333;">Gallery</h2>
-      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: nowrap;">
-        <img src="myart.png" alt="Drawing" style="max-width: 300px; height: auto; border-radius: 15px;">
-        <img src="skii.JPG" alt="Skiing" style="max-width: 300px; height: auto; border-radius: 15px;">
-        <img src="brulee.png" alt="Brûlée the cat" style="max-width: 300px; height: auto; border-radius: 15px;">
+      <div style="display: flex; justify-content: center; align-items: center; position: relative; height: 500px;">
+        <!-- Photo 1 - Left, tilted left -->
+        <div style="position: absolute; left: 50%; transform: translateX(-450px) rotate(-8deg); background: white; padding: 15px 15px 50px 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); z-index: 1;">
+          <img src="myart.png" alt="Drawing" style="width: 300px; height: 250px; object-fit: cover; display: block;">
+        </div>
+        <!-- Photo 2 - Right, tilted right -->
+        <div style="position: absolute; left: 50%; transform: translateX(180px) translateY(-40px) rotate(6deg); background: white; padding: 15px 15px 50px 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); z-index: 2;">
+          <img src="skii.JPG" alt="Skiing" style="width: 300px; height: 250px; object-fit: cover; object-position: center bottom; display: block;">
+        </div>
+        <!-- Photo 3 - Center bottom, slight tilt -->
+        <div style="position: absolute; left: 50%; transform: translateX(-120px) translateY(120px) rotate(3deg); background: white; padding: 15px 15px 50px 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.15); z-index: 3;">
+          <img src="brulee.png" alt="Brûlée the cat" style="width: 300px; height: 250px; object-fit: cover; display: block;">
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section style="padding: 60px 0; background: #E6ECEE;">
+  <!-- Contact Section - Soft Gradient -->
+  <section class="contact-section" style="padding: 60px 0 40px 0; min-height: 90vh; display: flex; align-items: center; background: linear-gradient(180deg, #E6ECEE 0%, #CED6D9 25%, #ADC2CC 50%, #d8c8d8 80%, #e8c4d0 100%);">
     <div class="container">
+      <!-- Header -->
+      <div style="text-align: center; margin-bottom: 3rem;">
+        <p style="color: #555; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 0.5rem;">get in touch</p>
+        <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; font-size: 2.5rem; color: #2a2a3a; letter-spacing: 3px;">CONTACT</h2>
+      </div>
+      
+      <div style="display: flex; gap: 3rem; max-width: 900px; margin: 0 auto;">
         
-        <!-- Contact Information -->
-        <div class="contact-info">
-          <h3>Contact</h3>
-          <p><a href="mailto:christinesher8@gmail.com">christinesher8@gmail.com</a></p>
-          <p><a href="mailto:ysher@uci.edu">ysher@uci.edu</a></p>
-          <p><a href="https://www.linkedin.com/in/christinesher8" target="_blank">LinkedIn</a></p>
-          <p><a href="Christine%27s%20Resume%20(5).pdf" target="_blank">Resume</a></p>
+        <!-- Left Side - Contact Info Card -->
+        <div style="flex: 0.8; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); border-radius: 12px; padding: 2rem; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+          
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; background: #d4b8c8; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 1.1rem;">📧</span>
+            </div>
+            <a href="mailto:christinesher8@gmail.com" style="color: #2a2a3a; text-decoration: none; font-size: 0.9rem;">christinesher8@gmail.com</a>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; background: #a8c8e8; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 1.1rem;">💼</span>
+            </div>
+            <a href="https://www.linkedin.com/in/christinesher8" target="_blank" style="color: #2a2a3a; text-decoration: none; font-size: 0.9rem;">LinkedIn</a>
+          </div>
+          
+          <div style="display: flex; align-items: center; gap: 1rem;">
+            <div style="width: 40px; height: 40px; background: #e8b4c0; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 1.1rem;">📄</span>
+            </div>
+            <a href="Christine%27s%20Resume%20(5).pdf" target="_blank" style="color: #2a2a3a; text-decoration: none; font-size: 0.9rem;">Resume</a>
+          </div>
         </div>
-        <!-- Contact Form -->
-        <div class="contact-form-section">
-          <h3>Get In Touch</h3>
-          <form action="https://formspree.io/f/movkyjdo" method="POST" class="contact-form">
-            <div class="form-group">
-              <input type="text" name="name" placeholder="Your Name" required>
+        
+        <!-- Right Side - Contact Form -->
+        <div style="flex: 1.2; background: rgba(255,255,255,0.85); backdrop-filter: blur(10px); border-radius: 12px; padding: 2rem; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
+          <form action="https://formspree.io/f/movkyjdo" method="POST">
+            <!-- Your Name -->
+            <div style="margin-bottom: 1.2rem;">
+              <label style="font-size: 0.85rem; color: #555; display: block; margin-bottom: 0.5rem;">Your Name</label>
+              <input type="text" name="name" required style="width: 100%; padding: 12px 15px; background: rgba(255,255,255,0.7); border: 1px solid #ccc; border-radius: 6px; color: #2a2a3a; font-size: 0.9rem; font-family: 'Plus Jakarta Sans', sans-serif;">
             </div>
-            <div class="form-group">
-              <input type="email" name="email" placeholder="Your Email" required>
+            
+            <!-- Your Email -->
+            <div style="margin-bottom: 1.2rem;">
+              <label style="font-size: 0.85rem; color: #555; display: block; margin-bottom: 0.5rem;">Your Email</label>
+              <input type="email" name="email" required style="width: 100%; padding: 12px 15px; background: rgba(255,255,255,0.7); border: 1px solid #ccc; border-radius: 6px; color: #2a2a3a; font-size: 0.9rem; font-family: 'Plus Jakarta Sans', sans-serif;">
             </div>
-            <div class="form-group">
-              <input type="text" name="subject" placeholder="Subject" required>
+            
+            <!-- Your Message -->
+            <div style="margin-bottom: 1.5rem;">
+              <label style="font-size: 0.85rem; color: #555; display: block; margin-bottom: 0.5rem;">Your message</label>
+              <textarea name="message" rows="5" required style="width: 100%; padding: 12px 15px; background: rgba(255,255,255,0.7); border: 1px solid #ccc; border-radius: 6px; color: #2a2a3a; font-size: 0.9rem; font-family: 'Plus Jakarta Sans', sans-serif; resize: none;"></textarea>
             </div>
-            <div class="form-group">
-              <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Send Message</button>
+            
+            <!-- Submit Button -->
+            <button type="submit" style="padding: 12px 30px; background: #2a2a3a; color: white; border: none; border-radius: 6px; font-size: 0.9rem; font-family: 'Plus Jakarta Sans', sans-serif; cursor: pointer; transition: background 0.3s;">Send</button>
           </form>
         </div>
+      </div>
     </div>
   </section>
 

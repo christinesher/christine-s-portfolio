@@ -612,72 +612,73 @@ EMAIL: ysher@uci.edu
     </div>
   </section>
 
-  <!-- Accessibility & Ethics Section -->
-  <section class="ethics-section">
+  <!-- Accessibility & Ethics + Validation Side by Side -->
+  <section class="combined-sections" style="padding: 2rem 0; background-color: #f8f9fa;">
     <div class="container">
-      <div class="section-card">
-        <h3>Accessibility & Ethical Considerations</h3>
+      <div style="display: flex; gap: 2rem; align-items: flex-start;">
         
-        <div class="subsection">
-          <h4>Error Handling & Edge Cases</h4>
-          <ul>
-            <li><strong>Poor lighting conditions:</strong> App prompts user to adjust lighting; offers text input fallback</li>
-            <li><strong>Fast or unclear signing:</strong> AI requests slower pace or shows partial translation with confidence indicators</li>
-            <li><strong>Network connectivity loss:</strong> Offline mode saves conversation locally; syncs when reconnected</li>
-          </ul>
+        <!-- Left: Accessibility & Ethics -->
+        <div class="section-card" style="flex: 1; padding: 1.5rem;">
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">Accessibility & Ethical Considerations</h3>
+          
+          <div class="subsection" style="margin-bottom: 1rem; padding-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Error Handling & Edge Cases</h4>
+            <ul style="font-size: 0.85rem;">
+              <li><strong>Poor lighting:</strong> Prompts to adjust; text fallback</li>
+              <li><strong>Unclear signing:</strong> Shows confidence indicators</li>
+              <li><strong>Network loss:</strong> Offline mode; syncs later</li>
+            </ul>
+          </div>
+          
+          <div class="subsection" style="margin-bottom: 1rem; padding-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Ethical AI Design</h4>
+            <ul style="font-size: 0.85rem;">
+              <li><strong>Bias:</strong> Train on diverse signers</li>
+              <li><strong>Privacy:</strong> On-device processing</li>
+              <li><strong>Over-reliance:</strong> Empower, not replace interpreters</li>
+            </ul>
+          </div>
+          
+          <div class="subsection" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Usability Trade-offs</h4>
+            <p style="font-size: 0.85rem; margin-bottom: 0.5rem;"><strong>Why not full auto?</strong> User control builds trust.</p>
+            <p style="font-size: 0.85rem; margin-bottom: 0;"><strong>Why mobile-first?</strong> Portability for everyday use.</p>
+          </div>
         </div>
         
-        <div class="subsection">
-          <h4>Ethical AI Design</h4>
-          <ul>
-            <li><strong>Bias in training data:</strong> Model must be trained on diverse signers (age, race, regional dialects) to avoid excluding communities</li>
-            <li><strong>Consent & privacy:</strong> Video data is processed on-device when possible; users control data sharing</li>
-            <li><strong>Over-reliance risk:</strong> App should empower communication, not replace human interpreters in high-stakes contexts (medical, legal)</li>
-          </ul>
+        <!-- Right: Validation & Next Steps -->
+        <div class="section-card" style="flex: 1; padding: 1.5rem;">
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem;">If I Continued: Validation & Next Steps</h3>
+          
+          <div class="subsection" style="margin-bottom: 1rem; padding-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">What would we test first?</h4>
+            <ul style="font-size: 0.85rem;">
+              <li><strong>ASL accuracy:</strong> Test with real users</li>
+              <li><strong>Emotional context:</strong> Tone perception tests</li>
+              <li><strong>User trust:</strong> Qualitative interviews</li>
+            </ul>
+          </div>
+          
+          <div class="subsection" style="margin-bottom: 1rem; padding-bottom: 1rem;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Key Metrics</h4>
+            <ul style="font-size: 0.85rem;">
+              <li><strong>Translation accuracy:</strong> % correct by context</li>
+              <li><strong>Time to communicate:</strong> Speed of understanding</li>
+              <li><strong>Confidence score:</strong> User comfort level</li>
+              <li><strong>Correction rate:</strong> Manual fix frequency</li>
+            </ul>
+          </div>
+          
+          <div class="subsection" style="margin-bottom: 0; padding-bottom: 0; border-bottom: none;">
+            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Riskiest Assumptions</h4>
+            <ul style="font-size: 0.85rem;">
+              <li>AI facial expression accuracy → Bias risk</li>
+              <li>Cultural context understanding → Miscommunication</li>
+              <li>Mobile-only sufficiency → Desktop may be needed</li>
+            </ul>
+          </div>
         </div>
         
-        <div class="subsection">
-          <h4>Usability Trade-offs</h4>
-          <p><strong>Why not fully automatic translation?</strong> Full automation risks losing nuance and context. Giving users control to review and correct builds trust and accuracy.</p>
-          <p><strong>Why prioritize mobile-first?</strong> Conversations happen in everyday moments — at home, in stores, at appointments. Portability is essential for real-world use.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Next Steps / Validation Section -->
-  <section class="validation-section">
-    <div class="container">
-      <div class="section-card">
-        <h3>If I Continued: Validation & Next Steps</h3>
-        
-        <div class="subsection">
-          <h4>What would we test first?</h4>
-          <ul>
-            <li><strong>ASL recognition accuracy:</strong> Prototype with real ASL users to measure translation fidelity across signing speeds and styles</li>
-            <li><strong>Emotional context preservation:</strong> Test whether non-signers perceive tone and intent correctly from translated output</li>
-            <li><strong>User trust in AI:</strong> Qualitative interviews to understand comfort levels with automated translation in different contexts</li>
-          </ul>
-        </div>
-        
-        <div class="subsection">
-          <h4>What metrics would matter?</h4>
-          <ul>
-            <li><strong>Translation accuracy rate:</strong> % of phrases correctly interpreted (by context, not just word-for-word)</li>
-            <li><strong>Time to successful communication:</strong> How quickly users feel understood in a conversation</li>
-            <li><strong>User confidence score:</strong> Self-reported comfort using the app in different contexts (casual vs. critical)</li>
-            <li><strong>Correction rate:</strong> How often users need to manually fix translations (high rate = model needs improvement)</li>
-          </ul>
-        </div>
-        
-        <div class="subsection">
-          <h4>What assumptions are riskiest?</h4>
-          <ul>
-            <li><strong>Assumption 1:</strong> AI can accurately interpret facial expressions across diverse users → <em>Risk: Bias in emotion detection models</em></li>
-            <li><strong>Assumption 2:</strong> Non-signers will understand ASL translations without cultural context → <em>Risk: Miscommunication despite accurate translation</em></li>
-            <li><strong>Assumption 3:</strong> Mobile-only solution is sufficient → <em>Risk: Professional contexts may require desktop/tablet integration</em></li>
-          </ul>
-        </div>
       </div>
     </div>
   </section>

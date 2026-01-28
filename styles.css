@@ -185,7 +185,7 @@ body {
 .project-link {
   display: inline-block;
   text-decoration: none;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
   color: #1a2633;
   font-weight: 600;
   font-size: 0.9rem;
@@ -193,14 +193,15 @@ body {
   letter-spacing: 0.5px;
   padding: 12px 24px;
   border-radius: 25px;
-  transition: all 0.3s ease;
   border: 1px solid #1a2633;
+  transition: all 0.3s ease;
+  border: none;
   cursor: pointer;
 }
 
 .project-link:hover {
   background-color: #1a2633;
-  color: #ffffff;
+  color: #FFFFFF;
   transform: translateY(-1px);
 }
 
