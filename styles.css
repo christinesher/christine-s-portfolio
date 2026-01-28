@@ -185,8 +185,8 @@ body {
 .project-link {
   display: inline-block;
   text-decoration: none;
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #1a2633;
   font-weight: 600;
   font-size: 0.9rem;
   text-transform: uppercase;
@@ -194,12 +194,13 @@ body {
   padding: 12px 24px;
   border-radius: 25px;
   transition: all 0.3s ease;
-  border: none;
+  border: 1px solid #1a2633;
   cursor: pointer;
 }
 
 .project-link:hover {
-  background-color: #333;
+  background-color: #1a2633;
+  color: #ffffff;
   transform: translateY(-1px);
 }
 
@@ -585,6 +586,16 @@ textarea:focus {
   max-width: 800px;
   text-align: center;
   margin: 0 auto;
+}
+
+.project-type-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  display: block;
 }
 
 .project-main-title {

@@ -15,9 +15,345 @@ EMAIL: ysher@uci.edu
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Canela Font (using Cormorant Garamond as elegant serif alternative) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Playfair Display Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Apply Plus Jakarta Sans to all text */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    .nav-logo a,
+    .nav-menu a {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    /* Glacier Blue Gradient Header for ExpressHands */
+    .expresshands-header {
+      background: linear-gradient(135deg, #a8c5d9 0%, #7a9fb8 20%, #98b8cf 40%, #c5d9e8 60%, #8fa8bd 80%, #b8d0e3 100%);
+      position: relative;
+      padding: 130px 0 120px;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Grainy texture overlay */
+    .expresshands-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    
+    .expresshands-header .project-header-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .expresshands-header .project-main-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 6rem);
+      letter-spacing: 0.02em;
+    }
+    
+    .expresshands-header .project-main-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 2rem;
+    }
+    
+    .expresshands-header .project-type-label {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+    }
+    
+    /* Persona Cards Styling */
+    .personas-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+    }
+    
+    .persona-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+    
+    .persona-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    .persona-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .persona-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a8c5d9, #7a9fb8);
+      flex-shrink: 0;
+    }
+    
+    .persona-info h4 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #2c3e50;
+      font-weight: 600;
+    }
+    
+    .persona-role {
+      margin: 0.25rem 0 0 0;
+      font-size: 0.9rem;
+      color: #7f8c8d;
+      font-weight: 500;
+    }
+    
+    .persona-quote {
+      background: #f8f9fa;
+      padding: 1rem;
+      border-left: 4px solid #7a9fb8;
+      margin-bottom: 1.25rem;
+      border-radius: 8px;
+    }
+    
+    .persona-quote p {
+      margin: 0;
+      font-style: italic;
+      color: #34495e;
+      line-height: 1.5;
+    }
+    
+    .persona-details-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    
+    .persona-section h5 {
+      font-size: 0.95rem;
+      color: #2c3e50;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    
+    .persona-details {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .persona-details li {
+      font-size: 0.85rem;
+      color: #555;
+      margin-bottom: 0.4rem;
+      line-height: 1.4;
+    }
+    
+    @media (max-width: 968px) {
+      .personas-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .persona-details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* User Flow Video Grid */
+    .feature-flow-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 3rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    
+    .feature-flow-grid.reverse-order {
+      direction: ltr;
+      grid-template-columns: 0.8fr 1.2fr;
+    }
+    
+    .feature-flow-grid.reverse-order .feature-flow-visual {
+      order: -1;
+    }
+    
+    .feature-flow-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .feature-flow-visual {
+      background: linear-gradient(135deg, #E6ECEE 0%, #CED6D9 100%);
+      padding: 1rem;
+      border-radius: 50px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 320px;
+      margin: 0 auto;
+    }
+    
+    .feature-flow-visual video {
+      border-radius: 42px;
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    @media (max-width: 968px) {
+      .feature-flow-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .feature-flow-grid.reverse-order .feature-flow-visual {
+        order: 0;
+      }
+    }
+    
+    /* Back to Projects Section - Match Next Section Size with Blue Background */
+    .back-section {
+      background: #ADC2CC !important;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0 !important;
+      margin-bottom: 0 !important;
+    }
+    
+    .back-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .back-link {
+      color: #1a2633 !important;
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-weight: 500 !important;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    
+    .back-link:hover {
+      color: #2F4156 !important;
+    }
+    
+    /* Ethics and Validation Section Cards */
+    .ethics-section,
+    .validation-section {
+      padding: 2rem 0;
+      background-color: #f8f9fa;
+    }
+    
+    .section-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .section-card h3 {
+      font-size: 2rem;
+      color: #1a2633;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .subsection {
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid #e9ecef;
+    }
+    
+    .subsection:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    
+    .subsection h4 {
+      font-size: 1.3rem;
+      color: #2c3e50;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    
+    .subsection ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .subsection li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+      color: #555;
+    }
+    
+    .subsection p {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+      color: #555;
+    }
+    
+    /* Key Design Decisions Images - Smaller size with backgrounds */
+    .feature-images {
+      display: flex;
+      gap: 4rem;
+      margin-top: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .feature-image-frame {
+      background: linear-gradient(135deg, #E6ECEE 0%, #CED6D9 100%);
+      padding: 0.5rem;
+      border-radius: 50px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-image-frame:hover {
+      transform: translateY(-4px);
+    }
+    
+    .feature-images img {
+      width: 200px;
+      height: auto;
+      object-fit: cover;
+      border-radius: 42px;
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
@@ -37,15 +373,15 @@ EMAIL: ysher@uci.edu
   </nav>
 
   <!-- Project Header -->
-  <section class="project-header">
+  <section class="project-header expresshands-header">
     <div class="container">
       <div class="project-header-content">
+        <p class="project-type-label">0→1 Product Concept</p>
         <h1 class="project-main-title">ExpressHands</h1>
         <h2 class="project-main-subtitle">AI-Powered ASL Translation Interface</h2>
         <div class="project-header-image">
           <img src="expresshandslogo.png" alt="Digital communication illustration showing two people using mobile phones for video/audio calls">
         </div>
-        <p class="project-main-description">A mobile app concept that visualizes real-time American Sign Language (ASL) translation using AI. Designed with accessibility and inclusivity at its core.</p>
       </div>
     </div>
   </section>
@@ -56,28 +392,110 @@ EMAIL: ysher@uci.edu
       <div class="project-content-grid">
         <div class="project-info">
           <div class="project-overview">
-            <h3>Project Overview</h3>
-            <p>ExpressHands is a conceptual mobile application that bridges the communication gap between hearing and deaf communities through AI-powered sign language recognition and translation. The project focused on creating an intuitive, accessible interface that could interpret facial expressions and gestures to produce emotionally accurate translations.</p>
+            <h3>The Challenge</h3>
+            <p><strong>How might we enable real-time communication between ASL users and non-signers in everyday contexts?</strong></p>
+            <p>Over 11 million people in the U.S. are deaf or hard of hearing, and American Sign Language (ASL) is their primary mode of communication. Yet most existing tools focus on learning ASL rather than facilitating real-time conversations. This leaves ASL users facing significant barriers in healthcare settings, social interactions, and daily communication with non-signers.</p>
           </div>
           
           <div class="problem-section">
             <h3>The Problem</h3>
+            <p>Through secondary research and analysis of existing accessibility tools, I identified key pain points:</p>
             <ul>
-              <li>No ASL Translating Tools - mostly learning apps</li>
-              <li>Real conversations are still inaccessible</li>
-              <li>Deaf users face health, social, and emotional barriers due to miscommunication</li>
+              <li><strong>Limited real-time translation tools</strong> — Most apps focus on ASL learning, not active conversation</li>
+              <li><strong>Loss of emotional context</strong> — Facial expressions and tone carry critical meaning in ASL that text-based translation loses</li>
+              <li><strong>One-way solutions</strong> — Existing tools often fail to support bidirectional conversation flow</li>
+              <li><strong>Accessibility barriers in critical contexts</strong> — Medical, legal, and emergency situations require accurate, immediate communication</li>
             </ul>
           </div>
           
           <div class="design-process-section">
-            <h3>Design Process</h3>
-            <p>The design process involved extensive research into accessibility standards, user interviews with members of the deaf community, and iterative prototyping in Figma. Key considerations included:</p>
-            <ul>
-              <li>Real-time gesture recognition accuracy</li>
-              <li>Intuitive visual feedback systems</li>
-              <li>Accessible features</li>
-              <li>Emotional context preservation in translations</li>
+            <h3>User Personas</h3>
+            <div class="personas-container">
+              <!-- Persona 1: ASL-Fluent Communicator -->
+              <div class="persona-card">
+                <div class="persona-header">
+                  <div class="persona-avatar"></div>
+                  <div class="persona-info">
+                    <h4>Sarah Chen</h4>
+                    <p class="persona-role">Primary User: ASL-Fluent Communicator</p>
+                  </div>
+                </div>
+                <div class="persona-quote">
+                  <p>"I want my conversations to feel natural, not like I'm talking through a translator."</p>
+                </div>
+                <div class="persona-details-grid">
+                  <div class="persona-section">
+                    <h5>📋 Demographics</h5>
+                    <ul class="persona-details">
+                      <li><strong>Age:</strong> 32</li>
+                      <li><strong>Location:</strong> Los Angeles, CA</li>
+                      <li><strong>Occupation:</strong> Graphic Designer</li>
+                      <li><strong>Education:</strong> BFA in Design</li>
+                      <li><strong>Family:</strong> Married, 1 child (hearing)</li>
+                    </ul>
+                  </div>
+                  <div class="persona-section">
+                    <h5>🧠 Psychographics</h5>
+                    <ul class="persona-details">
+                      <li><strong>Values:</strong> Clear communication, independence, emotional accuracy</li>
+                      <li><strong>Concerns:</strong> Misinterpretation, feeling isolated, slow communication</li>
+                      <li><strong>Tech Habits:</strong> Uses video calls, messaging apps, relies on visual cues</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="persona-section">
+                  <h5>🎯 Goals & Needs</h5>
+                  <ul class="persona-details">
+                    <li>Real-time, accurate ASL-to-text translation</li>
+                    <li>Preservation of emotional context (facial expressions)</li>
+                    <li>Ability to review and correct translations</li>
+                    <li>Seamless communication with non-signing family/colleagues</li>
+                  </ul>
+                </div>
+              </div>
+              <!-- Persona 2: Non-Signing Communicator -->
+              <div class="persona-card">
+                <div class="persona-header">
+                  <div class="persona-avatar"></div>
+                  <div class="persona-info">
+                    <h4>Michael Rodriguez</h4>
+                    <p class="persona-role">Secondary User: Non-Signing Communicator</p>
+                  </div>
+                </div>
+                <div class="persona-quote">
+                  <p>"I want to connect with my daughter without always needing an interpreter present."</p>
+                </div>
+                <div class="persona-details-grid">
+                  <div class="persona-section">
+                    <h5>📋 Demographics</h5>
+                    <ul class="persona-details">
+                      <li><strong>Age:</strong> 58</li>
+                      <li><strong>Location:</strong> Seattle, WA</li>
+                      <li><strong>Occupation:</strong> Retired Engineer</li>
+                      <li><strong>Education:</strong> MBA</li>
+                      <li><strong>Family:</strong> Married, 2 children (1 deaf daughter)</li>
+                    </ul>
+                  </div>
+                  <div class="persona-section">
+                    <h5>🧠 Psychographics</h5>
+                    <ul class="persona-details">
+                      <li><strong>Motivations:</strong> Family connection, support for deaf community, learning</li>
+                      <li><strong>Feelings:</strong> Sometimes frustrated by communication barriers, eager to learn</li>
+                      <li><strong>Tech Comfort:</strong> Uses smartphones for calls and basic apps, open to new tools</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="persona-section">
+                  <h5>🎯 Goals & Needs</h5>
+                  <ul class="persona-details">
+                    <li>Understand ASL gestures in real-time</li>
+                    <li>Speak naturally and have it translated to text for ASL user</li>
+                    <li>Review conversations to improve understanding</li>
+                    <li>Reduce reliance on third-party interpreters</li>
             </ul>
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -92,40 +510,173 @@ EMAIL: ysher@uci.edu
   <section class="key-features-section">
     <div class="container">
       <div class="key-features-content">
-        <h3 class="key-features-title">Key Features</h3>
+        <h3 class="key-features-title">Key Design Decisions</h3>
         <div class="feature-list">
           <div class="feature-item">
             <h4>Two-way conversation flow</h4>
-            <p>ASL users and non-ASL users can communicate with each other</p>
+            <p><strong>Decision:</strong> Both users see real-time translations in their preferred mode (ASL → text/speech, speech/text → visual signing cues).</p>
+            <p><strong>Why:</strong> True conversation requires bidirectional understanding. Asymmetric tools create power imbalances.</p>
           </div>
           <div class="feature-item">
             <h4>Facial expression & tone detection</h4>
-            <p>Integrated AI that detects one's emotions to interpret the accurate meanings they wish to express</p>
+            <p><strong>Decision:</strong> AI interprets facial expressions and body language to convey emotional context, not just literal word translation.</p>
+            <p><strong>Why:</strong> In ASL, a raised eyebrow or head tilt changes meaning entirely — this isn't optional information, it's grammatical.</p>
             <div class="feature-images">
+              <div class="feature-image-frame">
               <img src="expresshandsadjust.png" alt="ExpressHands facial expression detection interface">
+              </div>
+              <div class="feature-image-frame">
               <img src="expresshands.png" alt="ExpressHands tone detection interface">
+              </div>
             </div>
           </div>
           <div class="feature-item">
-            <h4>Personalized profiles</h4>
-            <p>Data collected to generate one's unique identity for tone and expression</p>
+            <h4>Personalized calibration profiles</h4>
+            <p><strong>Decision:</strong> Users answer onboarding questions to train the AI on their individual signing style and expressiveness.</p>
+            <p><strong>Why:</strong> ASL isn't standardized like spoken language — regional variations and personal styles exist. Personalization improves accuracy.</p>
             <div class="feature-images">
+              <div class="feature-image-frame">
               <img src="expressaq.png" alt="ExpressHands AI question interface">
+              </div>
+              <div class="feature-image-frame">
               <img src="expresshandspersonal.png" alt="ExpressHands personalized profile interface">
+              </div>
             </div>
           </div>
           <div class="feature-item">
-            <h4>Saved chat history</h4>
-            <p>View previous conversations with others</p>
+            <h4>Saved conversation history</h4>
+            <p><strong>Decision:</strong> Users can review past conversations just like they would in social messaging apps.</p>
+            <p><strong>Why:</strong> This transforms the app from a utility tool into a communication platform. By treating ASL conversations the same way we treat text messages or DMs, it normalizes accessibility and builds ongoing relationships — not just one-off translations.</p>
             <div class="feature-images">
+              <div class="feature-image-frame">
               <img src="expresshandschat.png" alt="ExpressHands chat history interface">
+              </div>
+              <div class="feature-image-frame">
               <img src="expresshandwithmom.png" alt="ExpressHands conversation with family interface">
+              </div>
             </div>
           </div>
-          <div class="feature-item">
-            <h4>100% mobile-first</h4>
-            <p>Only app is needed</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Flows Section -->
+  <section class="key-features-section">
+    <div class="container">
+      <div class="key-features-content">
+        <h3 class="key-features-title">Key User Flows</h3>
+        
+        <!-- First Flow with Video on Right -->
+        <div class="feature-flow-grid">
+          <div class="feature-flow-content">
+            <div class="feature-item">
+              <h4>1. Signing Up</h4>
+              <p>User opens app → inputs their personal information or sign-in with other accounts → fills out questionaire</p>
+            </div>
+            <div class="feature-item">
+              <h4>2. Translating</h4>
+              <p>Camera activates to begin translation → AI recognizes gestures and translates them into text → the user can switch translated text languages → the non-ASL user can speak to the microphone → the ASL user can see the translated text</p>
+            </div>
           </div>
+          <div class="feature-flow-visual">
+            <video loop muted playsinline width="100%" poster="keyflow.jpg">
+              <source src="keyflow.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+
+        <!-- Second Flow with Video on Left -->
+        <div class="feature-flow-grid reverse-order">
+          <div class="feature-flow-visual">
+            <video loop muted playsinline width="100%" poster="keyflow2.jpg">
+              <source src="keyflow2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="feature-flow-content">
+            <div class="feature-item">
+              <h4>3. Handling Uncertainty / Low Confidence</h4>
+              <p>AI detects unclear gesture → shows "?" indicator + best guess → user can tap to correct or re-sign → system learns from correction</p>
+              <p><strong>Why this matters:</strong> Transparency about AI confidence prevents miscommunication in critical contexts.</p>
+          </div>
+          <div class="feature-item">
+              <h4>4. Show or Scan QR Code</h4>
+              <p>Goes to profile page to show or scan QR code to connect with others</p>
+              <p><strong>Why this matters:</strong> By connecting with others, the translation process would be more accurate based on the user's expressive style</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Accessibility & Ethics Section -->
+  <section class="ethics-section">
+    <div class="container">
+      <div class="section-card">
+        <h3>Accessibility & Ethical Considerations</h3>
+        
+        <div class="subsection">
+          <h4>Error Handling & Edge Cases</h4>
+          <ul>
+            <li><strong>Poor lighting conditions:</strong> App prompts user to adjust lighting; offers text input fallback</li>
+            <li><strong>Fast or unclear signing:</strong> AI requests slower pace or shows partial translation with confidence indicators</li>
+            <li><strong>Network connectivity loss:</strong> Offline mode saves conversation locally; syncs when reconnected</li>
+          </ul>
+        </div>
+        
+        <div class="subsection">
+          <h4>Ethical AI Design</h4>
+          <ul>
+            <li><strong>Bias in training data:</strong> Model must be trained on diverse signers (age, race, regional dialects) to avoid excluding communities</li>
+            <li><strong>Consent & privacy:</strong> Video data is processed on-device when possible; users control data sharing</li>
+            <li><strong>Over-reliance risk:</strong> App should empower communication, not replace human interpreters in high-stakes contexts (medical, legal)</li>
+          </ul>
+        </div>
+        
+        <div class="subsection">
+          <h4>Usability Trade-offs</h4>
+          <p><strong>Why not fully automatic translation?</strong> Full automation risks losing nuance and context. Giving users control to review and correct builds trust and accuracy.</p>
+          <p><strong>Why prioritize mobile-first?</strong> Conversations happen in everyday moments — at home, in stores, at appointments. Portability is essential for real-world use.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Next Steps / Validation Section -->
+  <section class="validation-section">
+    <div class="container">
+      <div class="section-card">
+        <h3>If I Continued: Validation & Next Steps</h3>
+        
+        <div class="subsection">
+          <h4>What would we test first?</h4>
+          <ul>
+            <li><strong>ASL recognition accuracy:</strong> Prototype with real ASL users to measure translation fidelity across signing speeds and styles</li>
+            <li><strong>Emotional context preservation:</strong> Test whether non-signers perceive tone and intent correctly from translated output</li>
+            <li><strong>User trust in AI:</strong> Qualitative interviews to understand comfort levels with automated translation in different contexts</li>
+          </ul>
+        </div>
+        
+        <div class="subsection">
+          <h4>What metrics would matter?</h4>
+          <ul>
+            <li><strong>Translation accuracy rate:</strong> % of phrases correctly interpreted (by context, not just word-for-word)</li>
+            <li><strong>Time to successful communication:</strong> How quickly users feel understood in a conversation</li>
+            <li><strong>User confidence score:</strong> Self-reported comfort using the app in different contexts (casual vs. critical)</li>
+            <li><strong>Correction rate:</strong> How often users need to manually fix translations (high rate = model needs improvement)</li>
+          </ul>
+        </div>
+        
+        <div class="subsection">
+          <h4>What assumptions are riskiest?</h4>
+          <ul>
+            <li><strong>Assumption 1:</strong> AI can accurately interpret facial expressions across diverse users → <em>Risk: Bias in emotion detection models</em></li>
+            <li><strong>Assumption 2:</strong> Non-signers will understand ASL translations without cultural context → <em>Risk: Miscommunication despite accurate translation</em></li>
+            <li><strong>Assumption 3:</strong> Mobile-only solution is sufficient → <em>Risk: Professional contexts may require desktop/tablet integration</em></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -148,5 +699,33 @@ EMAIL: ysher@uci.edu
       <a href="index.html#projects" class="back-link">← Back to Projects</a>
     </div>
   </section>
+
+  <script>
+    // Play videos when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const videos = document.querySelectorAll('video');
+      
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5 // Video plays when 50% visible
+      };
+      
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }, observerOptions);
+      
+      videos.forEach(video => {
+        videoObserver.observe(video);
+      });
+    });
+  </script>
 </body>
 </html>

@@ -15,9 +15,201 @@ EMAIL: ysher@uci.edu
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Canela Font (using Cormorant Garamond as elegant serif alternative) -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Playfair Display Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Smooth scroll behavior */
+    html {
+      scroll-behavior: smooth;
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      scroll-padding-top: 60px;
+    }
+    
+    /* Overall page gradient: light to dark to light, ending in white */
+    body {
+      background: linear-gradient(to bottom, 
+        #E6ECEE 0%,
+        #CED6D9 10%,
+        #ADC2CC 20%,
+        #94AEC2 35%,
+        #829CBC 50%,
+        #94AEC2 65%,
+        #ADC2CC 75%,
+        #CED6D9 83%,
+        #E6ECEE 90%,
+        #F5F9FC 95%,
+        #FFFFFF 100%) !important;
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+    
+    /* Hero Section - With background image and fade transition */
+    .hero {
+      background-image: url('background.jpg') !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      overflow: visible;
+      -webkit-mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+      mask-image: linear-gradient(to bottom, black 0%, black 70%, transparent 100%);
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+    
+    /* Gradient overlay for better text readability */
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(47, 65, 86, 0.7) 0%, rgba(86, 124, 141, 0.6) 50%, rgba(200, 217, 230, 0.5) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Grainy texture overlay */
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-title {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 600 !important;
+      color: #ffffff !important;
+      font-size: clamp(3.5rem, 7vw, 5rem) !important;
+      letter-spacing: 0.02em !important;
+    }
+    
+    .hero-description {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-weight: 400 !important;
+      color: rgba(255, 255, 255, 0.95) !important;
+      font-size: 1.3rem !important;
+      line-height: 1.6 !important;
+    }
+    
+    /* Apply Plus Jakarta Sans to all other text elements */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    .nav-logo a,
+    .nav-menu a {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    .project-title {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 700 !important;
+      color: #1a2633 !important;
+      font-size: clamp(1.8rem, 3vw, 2.2rem) !important;
+    }
+    
+    .project-role {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 500 !important;
+      font-style: italic !important;
+      color: #4b5563 !important;
+    }
+    
+    .project-description,
+    .project-link {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    /* Projects Section - Gradient overlay to lighten while maintaining flow */
+    .projects {
+      background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.2) 15%,
+        rgba(255, 255, 255, 0.4) 30%,
+        rgba(255, 255, 255, 0.45) 100%) !important;
+      margin-top: -10vh !important;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Project Items - Add moderate padding and scroll snap */
+    .project-item {
+      padding: 80px 0 !important;
+      margin-bottom: 100px !important;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Next Section - White */
+    .next-section {
+      background: #FFFFFF !important;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0 !important;
+      margin-bottom: 0 !important;
+      scroll-snap-align: end;
+    }
+    
+    .next-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter3'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter3)' opacity='0.15'/%3E%3C/svg%3E");
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .next-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .next-link {
+      color: #2F4156 !important;
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-weight: 500 !important;
+    }
+    
+    .next-link:hover {
+      color: #567C8D !important;
+    }
+    
+    /* Remove extra space at bottom of page */
+    body {
+      margin-bottom: 0 !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -39,8 +231,8 @@ EMAIL: ysher@uci.edu
   <!-- Hero Section -->
   <section id="home" class="hero">
     <div class="container">
-      <h1 class="hero-title"><strong>Product & UX Designer</strong></h1>
-      <p class="hero-description">Hi! This is Christine and I'm passionate about creating user-focused,<br>purposeful design while building products that make life easier.</p>
+      <h1 class="hero-title"><strong>Hi, I'm Christine —</strong></h1>
+      <p class="hero-description">a Product / UX Designer creating useful and pretty products.</p>
     </div>
   </section>
 
@@ -51,8 +243,26 @@ EMAIL: ysher@uci.edu
       <!-- Project 1 -->
       <div class="project-item">
         <div class="project-content">
+          <h2 class="project-title">ExpressHands: AI-Powered ASL Translation Interface</h2>
+          <h3 class="project-role">Product / UX Designer (Concept Project)</h3>
+          <p class="project-description">
+            Designed a mobile app concept that visualizes real-time American Sign Language (ASL) translation using AI. 
+            Focused on accessible and intuitive UI/UX design in Figma, creating detailed user flows and visual mockups 
+            that demonstrate how AI could interpret facial expressions and gestures to produce emotionally accurate translations.
+          </p>
+          <a href="expresshands.html" class="project-link">VIEW PROJECT</a>
+        </div>
+        <div class="project-image">
+          <img src="expresshands.png" 
+               alt="ExpressHands AI-powered ASL translation app interface showing sign language recognition and translation features">
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-item">
+        <div class="project-content">
           <h2 class="project-title">ROID — AI-Powered Fitness & Social App</h2>
-          <h3 class="project-role">Product & UI/UX Designer (iOS App)</h3>
+          <h3 class="project-role">Product / UI/UX Designer (iOS App)</h3>
           <p class="project-description">
             Designed and developed a mobile fitness app integrating AI-driven workout and diet recommendations. 
             Created the Explore and Shop interfaces using Swift in Xcode, incorporating personalized health data 
@@ -67,7 +277,7 @@ EMAIL: ysher@uci.edu
         </div>
       </div>
 
-      <!-- Project 2 -->
+      <!-- Project 3 -->
       <div class="project-item">
         <div class="project-content">
           <h2 class="project-title">Instagram Reels — User Acceptance Research Study</h2>
@@ -85,25 +295,7 @@ EMAIL: ysher@uci.edu
         </div>
       </div>
 
-      <!-- Project 3 -->
-      <div class="project-item">
-        <div class="project-content">
-          <h2 class="project-title">ExpressHands: AI-Powered ASL Translation Interface</h2>
-          <h3 class="project-role">UX & Product Designer (Concept Project)</h3>
-          <p class="project-description">
-            Designed a mobile app concept that visualizes real-time American Sign Language (ASL) translation using AI. 
-            Focused on accessible and intuitive UI/UX design in Figma, creating detailed user flows and visual mockups 
-            that demonstrate how AI could interpret facial expressions and gestures to produce emotionally accurate translations.
-          </p>
-          <a href="expresshands.html" class="project-link">VIEW PROJECT</a>
-        </div>
-        <div class="project-image">
-          <img src="expresshands.png" 
-               alt="ExpressHands AI-powered ASL translation app interface showing sign language recognition and translation features">
-        </div>
-      </div>
-
-      <!-- Project 3 -->
+      <!-- Project 4 -->
       <div class="project-item">
         <div class="project-content">
           <h2 class="project-title">Redesign: Discord Student Hub Enhancement</h2>
@@ -151,11 +343,11 @@ EMAIL: ysher@uci.edu
           }
         } else {
           const target = document.querySelector(href);
-          if (target) {
-            target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
           }
         }
       });

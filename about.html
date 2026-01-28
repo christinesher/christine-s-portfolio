@@ -15,9 +15,57 @@ EMAIL: ysher@uci.edu
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Plus Jakarta Sans Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Playfair Display Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Custom CSS -->
   <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Apply Plus Jakarta Sans to all text */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    .nav-logo a,
+    .nav-menu a {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    .about-title {
+      font-family: 'Playfair Display', serif !important;
+      font-weight: 500 !important;
+    }
+    
+    .about-text,
+    .contact-info,
+    .contact-info h3,
+    .contact-info p,
+    .contact-info a,
+    .contact-form-section h3,
+    .contact-form input,
+    .contact-form textarea,
+    .submit-btn {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    /* Soft radial gradient background */
+    .about {
+      background: radial-gradient(ellipse at center, 
+        #94AEC2 0%, 
+        #ADC2CC 25%, 
+        #CED6D9 50%, 
+        #E6ECEE 75%, 
+        #F5F9FC 100%);
+    }
+    
+    .contact-form-section {
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -36,24 +84,41 @@ EMAIL: ysher@uci.edu
     </div>
   </nav>
 
-  <!-- About Section -->
-  <section id="about" class="about">
+  <!-- About Section - Hero Style -->
+  <section id="about" class="about" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
     <div class="container">
-      <div class="about-content">
-        <h2 class="about-title">About Me</h2>
-        <p class="about-text">
-          Born in Taiwan and later moving to the U.S. in middle school, I've always loved anything creative — from sketching to digital art. As I got older, that interest shifted into understanding how people think and why they interact with technology the way they do. Now, I enjoy combining design with user research to create experiences that feel clear, thoughtful, and genuinely helpful.
-        </p>
-        <p class="about-text">
-          Outside of design, I love to draw, ski, and spend time with Brûlée! (she's a British Shorthair)
-        </p>
-        
-        <!-- About Images -->
-        <div class="about-images" style="display: flex; gap: 2rem; justify-content: center; margin: 5rem 0 3rem 0; flex-wrap: nowrap;">
-          <img src="myart.png" alt="Drawing" style="max-width: 300px; height: auto; border-radius: 8px;">
-          <img src="ski.png" alt="Skiing" style="max-width: 300px; height: auto; border-radius: 8px;">
-          <img src="brulee.png" alt="Brûlée the cat" style="max-width: 300px; height: auto; border-radius: 8px;">
+      <div style="display: flex; gap: 4rem; align-items: center; max-width: 900px; margin: 0 auto;">
+        <div style="flex: 1; text-align: left;">
+          <h2 class="about-title" style="text-align: left; margin-top: 0; margin-bottom: 1.5rem;">About Me</h2>
+          <p class="about-text" style="text-align: left; margin-bottom: 1rem;">
+            Born in Taiwan and later moving to the U.S. in middle school, I've always loved anything creative — from sketching to digital art. As I got older, that interest shifted into understanding how people think and why they interact with technology the way they do. Now, I enjoy combining design with user research to create experiences that feel clear, thoughtful, and genuinely helpful.
+          </p>
+          <p class="about-text" style="text-align: left; margin-bottom: 0;">
+            Outside of design, I love to draw, ski, and spend time with Brûlée! (she's a British Shorthair)
+          </p>
         </div>
+        <div style="flex-shrink: 0;">
+          <img src="mypfp.JPG" alt="Christine Sher" style="width: 280px; height: 280px; object-fit: cover; border-radius: 50%;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Images Section -->
+  <section style="padding: 60px 0; background: #F5F9FC;">
+    <div class="container">
+      <h2 style="font-family: 'Playfair Display', serif; font-weight: 500; text-align: center; margin-bottom: 2rem; color: #333;">Gallery</h2>
+      <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: nowrap;">
+        <img src="myart.png" alt="Drawing" style="max-width: 300px; height: auto; border-radius: 15px;">
+        <img src="skii.JPG" alt="Skiing" style="max-width: 300px; height: auto; border-radius: 15px;">
+        <img src="brulee.png" alt="Brûlée the cat" style="max-width: 300px; height: auto; border-radius: 15px;">
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section style="padding: 60px 0; background: #E6ECEE;">
+    <div class="container">
         
         <!-- Contact Information -->
         <div class="contact-info">
@@ -82,7 +147,6 @@ EMAIL: ysher@uci.edu
             <button type="submit" class="submit-btn">Send Message</button>
           </form>
         </div>
-      </div>
     </div>
   </section>
 
