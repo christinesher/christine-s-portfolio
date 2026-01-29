@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--
+WRITTEN BY: Christine Sher
+EMAIL: ysher@uci.edu
+-->
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Christine Sher">
+  <meta name="description" content="NeuroScreen - AI-Powered Early Neurodevelopmental Screening by Christine Sher">
+  <title>NeuroScreen - Christine Sher</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <style>
+    /* Apply Plus Jakarta Sans to all text */
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    .nav-logo a,
+    .nav-menu a {
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }
+    
+    /* Gradient Header for NeuroScreen */
+    .neuroscreen-header {
+      background: linear-gradient(135deg, #94AEC2 0%, #ADC2CC 30%, #CED6D9 60%, #E6ECEE 100%);
+      position: relative;
+      padding: 130px 0 120px;
+      overflow: hidden;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Grainy texture overlay */
+    .neuroscreen-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.15'/%3E%3C/svg%3E");
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    
+    .neuroscreen-header .project-header-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .neuroscreen-header .project-main-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      color: #ffffff;
+      font-size: clamp(4rem, 8vw, 6rem);
+      letter-spacing: 0.02em;
+    }
+    
+    .neuroscreen-header .project-main-subtitle {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 2rem;
+    }
+    
+    .neuroscreen-header .project-type-label {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 400;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.9);
+      color: #2a2a3a;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-top: 1.5rem;
+    }
+    
+    /* Progress Section */
+    .progress-section {
+      padding: 4rem 0;
+      background: #f8f9fa;
+    }
+    
+    .progress-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .progress-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+    
+    .progress-card h4 {
+      font-size: 1.3rem;
+      color: #1a2633;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    .progress-card.done {
+      border-top: 4px solid #94AEC2;
+    }
+    
+    .progress-card.current {
+      border-top: 4px solid #94AEC2;
+    }
+    
+    .progress-card.next {
+      border-top: 4px solid #94AEC2;
+    }
+    
+    .progress-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .progress-card li {
+      margin-bottom: 0.75rem;
+      color: #555;
+      line-height: 1.5;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+    
+    .progress-card.done li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #94AEC2;
+      font-weight: bold;
+    }
+    
+    .progress-card.current li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #94AEC2;
+    }
+    
+    .progress-card.next li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #94AEC2;
+    }
+    
+    @media (max-width: 968px) {
+      .progress-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    /* Back to Projects Section */
+    .back-section {
+      background: #ADC2CC !important;
+      position: relative;
+      overflow: hidden;
+      padding: 60px 0 !important;
+      margin-bottom: 0 !important;
+    }
+    
+    .back-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .back-link {
+      color: #1a2633 !important;
+      font-family: 'Plus Jakarta Sans', sans-serif !important;
+      font-weight: 500 !important;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+    
+    .back-link:hover {
+      color: #2F4156 !important;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="nav">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="mypfp.JPG" alt="Christine Sher" class="nav-avatar">
+        <a href="index.html">christine sher</a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="index.html#projects">Projects</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="Christine%27s%20Resume%20(5).pdf" target="_blank">Resume</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Project Header -->
+  <section class="project-header neuroscreen-header">
+    <div class="container">
+      <div class="project-header-content">
+        <p class="project-type-label">0→1 Product Concept</p>
+        <h1 class="project-main-title">NeuroScreen</h1>
+        <h2 class="project-main-subtitle">AI-Powered Early Neurodevelopmental Screening</h2>
+        <span class="status-badge">In Progress</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Overview -->
+  <section class="project-details">
+    <div class="container">
+      <div class="project-content-grid">
+        <div class="project-info">
+          <div class="project-overview">
+            <h3>About This Project</h3>
+            <p>NeuroScreen is an ongoing product concept exploring how computer vision and physiological data can support early risk screening for autism and ADHD in infants and toddlers.</p>
+            <p>The project is currently focused on refining the core user flow, validating assumptions with research, and translating clinical constraints into an accessible mobile experience for caregivers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Progress Section -->
+  <section class="progress-section">
+    <div class="container">
+      <h3 style="font-size: 2rem; color: #1a2633; margin-bottom: 0.5rem;">Project Progress</h3>
+      <p style="color: #666; margin-bottom: 2rem;">Tracking what's been accomplished and what's coming next.</p>
+      
+      <div class="progress-grid">
+        <!-- What's Done -->
+        <div class="progress-card done">
+          <h4>What's Done</h4>
+          <ul>
+            <li>Problem framing and stakeholder analysis</li>
+            <li>Research into early screening practices and constraints</li>
+            <li>Initial product scope and feature definition</li>
+            <li>Early interaction flows and low-fidelity concepts</li>
+          </ul>
+        </div>
+        
+        <!-- What I'm Working On -->
+        <div class="progress-card current">
+          <h4>Working On Now</h4>
+          <ul>
+            <li>Refining caregiver and clinician user journeys</li>
+            <li>Exploring ethical and accessibility considerations</li>
+            <li>Iterating on data collection and feedback flows</li>
+          </ul>
+        </div>
+        
+        <!-- What's Next -->
+        <div class="progress-card next">
+          <h4>What's Next</h4>
+          <ul>
+            <li>Usability testing and iteration</li>
+            <li>High-fidelity designs</li>
+            <li>Clarifying validation and trust signals in the UI</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Projects -->
+  <section class="back-section">
+    <div class="container">
+      <a href="index.html#projects" class="back-link">← Back to Projects</a>
+    </div>
+  </section>
+
+</body>
+</html>
+
