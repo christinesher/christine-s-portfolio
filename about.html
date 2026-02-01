@@ -86,6 +86,89 @@ EMAIL: ysher@uci.edu
       margin-bottom: 0 !important;
       padding-bottom: 0 !important;
     }
+    
+    /* Mobile responsive styles */
+    @media (max-width: 768px) {
+      html {
+        scroll-snap-type: y proximity;
+      }
+      
+      /* About section - stack vertically */
+      .about .container > div {
+        flex-direction: column !important;
+        gap: 2rem !important;
+        text-align: center !important;
+      }
+      
+      .about .container > div > div:first-child {
+        text-align: center !important;
+      }
+      
+      .about .container > div > div:first-child .about-title,
+      .about .container > div > div:first-child .about-text {
+        text-align: center !important;
+      }
+      
+      .about .container > div > div:last-child img {
+        width: 200px !important;
+        height: 200px !important;
+      }
+      
+      /* Images section - stack polaroids vertically */
+      .images-section {
+        padding: 60px 0 !important;
+        min-height: auto !important;
+      }
+      
+      .images-section .container > div {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 30px !important;
+        height: auto !important;
+        position: relative !important;
+      }
+      
+      .images-section .container > div > div {
+        position: relative !important;
+        left: auto !important;
+        transform: rotate(0deg) !important;
+        margin: 0 !important;
+      }
+      
+      .images-section .container > div > div:nth-child(1) {
+        transform: rotate(-3deg) !important;
+      }
+      
+      .images-section .container > div > div:nth-child(2) {
+        transform: rotate(2deg) !important;
+      }
+      
+      .images-section .container > div > div:nth-child(3) {
+        transform: rotate(-2deg) !important;
+      }
+      
+      .images-section .container > div > div img {
+        width: 250px !important;
+        height: 200px !important;
+      }
+      
+      /* Contact section - stack vertically */
+      .contact-section {
+        padding: 40px 0 30px 0 !important;
+        min-height: auto !important;
+      }
+      
+      .contact-section .container > div:last-child {
+        flex-direction: column !important;
+        gap: 2rem !important;
+      }
+      
+      .contact-section .container > div:last-child > div {
+        flex: none !important;
+        width: 100% !important;
+      }
+    }
   </style>
 </head>
 

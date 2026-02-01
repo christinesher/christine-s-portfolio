@@ -209,6 +209,50 @@ EMAIL: ysher@uci.edu
     body {
       margin-bottom: 0 !important;
     }
+    
+    /* Mobile responsive adjustments */
+    @media (max-width: 768px) {
+      html {
+        scroll-snap-type: y proximity;
+        scroll-padding-top: 80px;
+      }
+      
+      .project-item {
+        min-height: auto !important;
+        padding: 40px 0 !important;
+        margin-bottom: 40px !important;
+        scroll-snap-align: start;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+      }
+      
+      .project-content {
+        order: 1;
+        width: 100% !important;
+        padding: 0 20px;
+      }
+      
+      .project-image {
+        order: 2;
+        width: 100% !important;
+        padding: 20px;
+      }
+      
+      .project-title {
+        font-size: 1.4rem !important;
+        margin-bottom: 8px !important;
+      }
+      
+      .project-role {
+        font-size: 0.9rem !important;
+        margin-bottom: 12px !important;
+      }
+      
+      .project-description {
+        font-size: 0.9rem !important;
+        line-height: 1.5 !important;
+      }
+    }
   </style>
 </head>
 
