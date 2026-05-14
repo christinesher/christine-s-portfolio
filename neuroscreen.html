@@ -34,11 +34,14 @@ EMAIL: ysher@uci.edu
     .neuroscreen-header {
       background: linear-gradient(135deg, #94AEC2 0%, #ADC2CC 30%, #CED6D9 60%, #E6ECEE 100%);
       position: relative;
-      padding: 140px 0 100px;
-      overflow: hidden;
+      box-sizing: border-box;
       min-height: 100vh;
+      min-height: 100dvh;
+      padding: clamp(6.5rem, 11vh, 8.5rem) 0 clamp(2.5rem, 6vh, 4.5rem);
+      overflow: visible;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
     
     .neuroscreen-header::before {
@@ -53,42 +56,108 @@ EMAIL: ysher@uci.edu
       pointer-events: none;
     }
     
+    .neuroscreen-header .container {
+      width: 100%;
+    }
+    
     .neuroscreen-header .project-header-content {
       position: relative;
       z-index: 1;
-      max-width: 820px;
+      max-width: 1120px;
       margin: 0 auto;
       text-align: center;
+      width: 100%;
     }
     
     .neuro-hero-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(0.3rem, 1vh, 0.5rem);
+      margin: 0 0 clamp(1.5rem, 4vh, 2.75rem);
+      text-align: center;
+    }
+    
+    .neuro-hero-title-primary {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
       color: #ffffff;
-      font-size: clamp(2rem, 4.5vw, 3.25rem);
+      font-size: clamp(2.35rem, 5.5vw + 0.35rem, 4rem);
       letter-spacing: 0.02em;
-      line-height: 1.15;
-      margin-bottom: 1rem;
+      line-height: 1.12;
     }
     
-    .neuro-hero-role {
+    .neuro-hero-title-sub {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: rgba(255, 255, 255, 0.95);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 1.25rem;
+      font-weight: 500;
+      font-size: clamp(0.9rem, 2vw + 0.2rem, 1.2rem);
+      letter-spacing: 0.02em;
+      text-transform: none;
+      color: rgba(255, 255, 255, 0.88);
+      line-height: 1.35;
+      max-width: 32rem;
     }
     
-    .neuro-hero-summary {
+    .neuro-hero-screens {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(0.35rem, 1vw, 0.65rem);
+      align-items: end;
+      justify-items: center;
+      margin: 0 auto;
+      width: 100%;
+      max-width: min(680px, 100%);
+    }
+    
+    .neuro-hero-screens figure {
+      margin: 0;
+      width: 100%;
+      max-width: min(210px, 100%);
+      min-width: 0;
+      padding: 14px;
+      background: rgba(249, 243, 243, 0.2);
+      border-radius: 30px;
+      overflow: hidden;
+      line-height: 0;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    .neuro-hero-screens img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background: none;
+      border-radius: 30px;
+    }
+    
+    @media (max-width: 700px) {
+      .neuro-hero-screens {
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(0.65rem, 2.5vh, 1rem);
+        margin-bottom: 0;
+        max-width: min(300px, 100%);
+      }
+      
+      .neuro-hero-screens figure {
+        max-width: min(210px, 100%);
+        border-radius: 30px;
+        overflow: hidden;
+      }
+      
+      .neuro-hero-screens img {
+        border-radius: 30px;
+      }
+    }
+    
+    .neuro-hero-tagline {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.15rem;
-      line-height: 1.65;
+      font-size: clamp(1rem, 2.2vw, 1.15rem);
+      line-height: 1.6;
       color: rgba(255, 255, 255, 0.96);
       font-weight: 400;
       margin: 0 auto;
-      max-width: 720px;
+      max-width: 640px;
     }
     
     .neuro-section {
@@ -263,6 +332,115 @@ EMAIL: ysher@uci.edu
     .back-link:hover {
       color: #2F4156 !important;
     }
+
+    /* Product Overview */
+    .po-wide {
+      max-width: 960px;
+    }
+
+    .po-subsection {
+      padding: 2.75rem 0;
+      border-top: 1px solid #e8eaec;
+    }
+
+    .po-subsection:first-of-type {
+      border-top: none;
+      padding-top: 1.25rem;
+    }
+
+    .po-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #94AEC2;
+      margin-bottom: 0.35rem;
+    }
+
+    .po-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #1a2633;
+      margin: 0 0 0.65rem;
+      letter-spacing: -0.01em;
+    }
+
+    .po-desc {
+      font-size: 0.98rem;
+      color: #555;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    .po-content-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .po-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .po-screens {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: flex-start;
+    }
+
+    .po-screens figure {
+      margin: 0;
+      line-height: 0;
+    }
+
+    .po-screens img {
+      height: 360px;
+      width: auto;
+      border-radius: 24px;
+      display: block;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    }
+
+    .po-video-wrap {
+      max-width: 260px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .po-video-wrap video {
+      width: 100%;
+      border-radius: 24px;
+      display: block;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    }
+
+    .po-video-caption {
+      font-size: 0.88rem;
+      color: #888;
+      margin-top: 0.65rem;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      .po-content-row {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .po-screens img {
+        height: 260px;
+      }
+
+      .po-video-wrap {
+        max-width: 200px;
+      }
+    }
   </style>
 </head>
 
@@ -285,8 +463,21 @@ EMAIL: ysher@uci.edu
   <section class="project-header neuroscreen-header">
     <div class="container">
       <div class="project-header-content">
-        <h1 class="neuro-hero-title">Owlet: Mobile Neurological Screening Platform</h1>
-        <p class="neuro-hero-role">Product / UX Designer</p>
+        <h1 class="neuro-hero-title">
+          <span class="neuro-hero-title-primary">Owlet</span>
+          <span class="neuro-hero-title-sub">Mobile Neurological Screening Platform</span>
+        </h1>
+        <div class="neuro-hero-screens" aria-label="Product screens">
+          <figure>
+            <img src="homescreen copy.png" alt="Owlet home screen">
+          </figure>
+          <figure>
+            <img src="camerascreening copy.png" alt="Owlet camera-based screening">
+          </figure>
+          <figure>
+            <img src="pastscreening copy.png" alt="Owlet past screenings">
+          </figure>
+        </div>
       </div>
     </div>
   </section>
@@ -296,70 +487,11 @@ EMAIL: ysher@uci.edu
     <div class="container">
       <div class="neuro-section-inner">
         <h2>Problem · Why this matters</h2>
-        <p class="section-lede">Early identification can significantly improve developmental outcomes, yet current screening methods are slow, subjective, and inaccessible—especially for families without access to specialists.</p>
-        <p class="section-lede">At the same time, research shows that eye-tracking and AI can detect early neurological signals with high accuracy, but these tools remain confined to clinical settings.</p>
-        <p class="section-lede">Owlet bridges this gap by translating clinically validated methods into an accessible, scalable mobile experience—enabling earlier, more objective screening for all families.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Research insights -->
-  <section class="neuro-section">
-    <div class="container">
-      <div class="neuro-section-inner">
-        <h2>Research insights</h2>
         <ul class="neuro-callout-list">
-          <li><strong>Early detection improves outcomes.</strong> Children benefit significantly from earlier diagnosis and intervention.</li>
-          <li><strong>Current screening is unreliable and inaccessible.</strong> Existing tools are subjective, inconsistent, and often unavailable to families without specialist access.</li>
-          <li><strong>Technology can do better—but isn’t widely available.</strong> Advances in eye-tracking and AI enable accurate early detection, but are still limited to clinical environments.</li>
+          <li>Early identification improves developmental outcomes, yet current screening methods are often slow, subjective, and difficult to access.</li>
+          <li>Research shows that eye-tracking and AI can detect early neurological signals with high accuracy, but these tools remain limited to clinical settings.</li>
+          <li>Owlet brings these methods into an accessible mobile experience, enabling earlier and more objective screening for families.</li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Solution -->
-  <section class="neuro-section">
-    <div class="container">
-      <div class="neuro-section-inner">
-        <h2>Solution · What we’re building</h2>
-        <p class="section-lede">Owlet is designed as an end-to-end screening experience—not a loose demo—where capture, interpretation, and handoff are intentional.</p>
-        <ul class="neuro-callout-list">
-          <li><strong>At-home screening for caregivers.</strong> Guided sessions walk families through standardized interactions suitable for infants and toddlers.</li>
-          <li><strong>Multi-modal capture.</strong> Eye tracking via the device camera (computer vision) pairs with physiological signals—ECG and heart rate—to enrich behavioral observations.</li>
-          <li><strong>Processing and synthesis.</strong> Signals feed a structured pipeline oriented toward consistency and auditability rather than one-off snapshots.</li>
-          <li><strong>Clinician-facing outputs.</strong> Results are sent for clinical review: what was measured, under what conditions, and what it suggests for next steps.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Features -->
-  <section class="key-features-section" style="background: #fafafa;">
-    <div class="container">
-      <div class="key-features-content">
-        <h3 class="key-features-title">Key Features</h3>
-        <div class="feature-list">
-          <div class="feature-item">
-            <h4>Guided Screening Flow</h4>
-            <p>Step-by-step sessions that standardize context and reduce variability between at-home runs.</p>
-          </div>
-          <div class="feature-item">
-            <h4>Eye Tracking via Camera</h4>
-            <p>Computer-vision–based attention and gaze patterns to support developmental screening hypotheses.</p>
-          </div>
-          <div class="feature-item">
-            <h4>Physiological Data (ECG + Heart Rate)</h4>
-            <p>Integrates biosignals alongside behavior to ground observations in measurable physiology.</p>
-          </div>
-          <div class="feature-item">
-            <h4>Clinician Reporting &amp; Dashboard</h4>
-            <p>Exports and summaries aimed at specialists—emphasizing clarity, provenance, and appropriate uncertainty.</p>
-          </div>
-          <div class="feature-item">
-            <h4>Caregiver Feedback &amp; Next Steps</h4>
-            <p>Readable guidance for families after a session: what happened, what it may mean, and what to do next clinically.</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -383,6 +515,132 @@ EMAIL: ysher@uci.edu
     </div>
   </section>
 
+  <!-- Product Overview -->
+  <section class="neuro-section">
+    <div class="container">
+      <div class="neuro-section-inner po-wide">
+        <h2>Product Overview</h2>
+        <p class="section-lede">A walkthrough of the full experience — from first-time setup to longitudinal tracking.</p>
+
+        <!-- A -->
+        <div class="po-subsection">
+          <div class="po-content-row">
+            <div class="po-text">
+              <p class="po-label">A · Screening Experience</p>
+              <h3 class="po-title">Core Feature — Camera-Guided Session</h3>
+              <p class="po-desc">The primary differentiator. Caregivers are guided through a standardized screening session at home using their phone camera. The UX prioritizes calm, minimal prompting while the system captures behavioral and physiological signal.</p>
+            </div>
+            <div class="po-screens">
+              <figure><img src="homescreen.png" alt="Home screen"></figure>
+              <figure><img src="camerascreening.png" alt="Camera screening screen"></figure>
+            </div>
+          </div>
+          <div class="po-video-wrap">
+            <video muted loop playsinline>
+              <source src="troubleshootingflow copy.mov" type="video/mp4">
+            </video>
+            <p class="po-video-caption">Troubleshooting flow — guides caregivers through camera and positioning issues without losing the session.</p>
+          </div>
+        </div>
+
+        <!-- B -->
+        <div class="po-subsection">
+          <div class="po-content-row">
+            <div class="po-text">
+              <p class="po-label">B &middot; Account &amp; Onboarding</p>
+              <h3 class="po-title">Account Creation &amp; Login</h3>
+              <p class="po-desc">Kept intentionally lightweight. Onboarding is secondary to the screening experience, so friction here was minimized.</p>
+            </div>
+            <div class="po-screens">
+              <figure><img src="createacc.png" alt="Create account screen"></figure>
+              <figure><img src="createaccinfo copy.png" alt="Filled form state"></figure>
+              <figure><img src="login copy.png" alt="Login screen"></figure>
+            </div>
+          </div>
+          <div class="po-video-wrap">
+            <video muted loop playsinline>
+              <source src="createaccflow copy.mov" type="video/mp4">
+            </video>
+            <p class="po-video-caption">Account creation flow end-to-end.</p>
+          </div>
+        </div>
+
+        <!-- C -->
+        <div class="po-subsection">
+          <div class="po-content-row">
+            <div class="po-text">
+              <p class="po-label">C &middot; Child Profile Management</p>
+              <h3 class="po-title">Switching Between Children</h3>
+              <p class="po-desc">A bottom sheet pattern that handles multi-child families cleanly — surfacing the right profile before a session without navigating to a separate settings page.</p>
+            </div>
+            <div class="po-screens">
+              <figure><img src="switchchild copy.png" alt="Switch child bottom sheet"></figure>
+            </div>
+          </div>
+          <div class="po-video-wrap">
+            <video muted loop playsinline>
+              <source src="switchchild copy.mov" type="video/mp4">
+            </video>
+            <p class="po-video-caption">Child switching flow.</p>
+          </div>
+        </div>
+
+        <!-- D -->
+        <div class="po-subsection">
+          <div class="po-content-row">
+            <div class="po-text">
+              <p class="po-label">D &middot; Results &amp; Longitudinal Tracking</p>
+              <h3 class="po-title">Past Screenings &amp; Notifications</h3>
+              <p class="po-desc">Makes the product feel clinically persistent — not a one-time demo but an ongoing tool. Results are stored, reviewable, and paired with notifications that prompt action without alarming tone.</p>
+            </div>
+            <div class="po-screens">
+              <figure><img src="pastscreening copy.png" alt="Past screenings"></figure>
+              <figure><img src="notif copy.png" alt="Notifications screen"></figure>
+            </div>
+          </div>
+          <div class="po-video-wrap">
+            <video muted loop playsinline>
+              <source src="savedscreening copy.mov" type="video/mp4">
+            </video>
+            <p class="po-video-caption">Saved screening history and longitudinal tracking flow.</p>
+          </div>
+        </div>
+
+        <!-- E -->
+        <div class="po-subsection">
+          <div class="po-content-row">
+            <div class="po-text">
+              <p class="po-label">E &middot; Settings &amp; Support</p>
+              <h3 class="po-title">Settings Flow</h3>
+              <p class="po-desc">Kept brief — focused on device permissions, notification preferences, and support access relevant to the screening context.</p>
+            </div>
+          </div>
+          <div class="po-video-wrap">
+            <video muted loop playsinline>
+              <source src="settingsflow copy.mov" type="video/mp4">
+            </video>
+            <p class="po-video-caption">Settings and support flow.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Research insights -->
+  <section class="neuro-section alt">
+    <div class="container">
+      <div class="neuro-section-inner">
+        <h2>Research insights</h2>
+        <ul class="neuro-callout-list">
+          <li><strong>Early detection improves outcomes.</strong> Children benefit significantly from earlier diagnosis and intervention.</li>
+          <li><strong>Current screening is unreliable and inaccessible.</strong> Existing tools are subjective, inconsistent, and often unavailable to families without specialist access.</li>
+          <li><strong>Technology can do better—but isn’t widely available.</strong> Advances in eye-tracking and AI enable accurate early detection, but are still limited to clinical environments.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- Design Challenges -->
   <section class="neuro-section alt">
     <div class="container">
@@ -393,7 +651,6 @@ EMAIL: ysher@uci.edu
           <li><strong>Designing for infants—the indirect user.</strong> Every screen must work for caregivers while encoding behaviors the system needs from a child who cannot follow instructions.</li>
           <li><strong>Caregiver usability vs. clinical rigor.</strong> The experience must feel achievable at home without diluting protocols to the point of useless data.</li>
           <li><strong>Sensitive health data by default.</strong> Minimizing collection, surfacing consent and control, and avoiding fear-based language when families are already stressed.</li>
-          <li><strong>Trust in AI- and CV-driven results.</strong> Explaining methodology, confidence, and human-in-the-loop review so “algorithmic” does not read as opaque or oracular.</li>
         </ul>
       </div>
     </div>
@@ -427,38 +684,6 @@ EMAIL: ysher@uci.edu
     </div>
   </section>
 
-  <!-- Flows & Screens -->
-  <section class="neuro-section alt">
-    <div class="container">
-      <div class="neuro-section-inner">
-        <h2>User Flows &amp; Screens</h2>
-        <p class="section-lede">Two journeys anchor the system—each labeled so reviewers can map narrative to UI.</p>
-        <div class="flows-split">
-          <div class="flow-panel">
-            <h3>Caregiver journey</h3>
-            <ol>
-              <li>Onboarding &amp; consent — device permissions, sensor pairing, plain-language study of what data is used.</li>
-              <li>Guided session — scripted activities optimized for eye tracking and physiological recording.</li>
-              <li>Completion &amp; summary — caregiver-facing recap with supportive tone and explicit next-step guidance.</li>
-            </ol>
-          </div>
-          <div class="flow-panel">
-            <h3>Clinician journey</h3>
-            <ol>
-              <li>Receive structured report — patient context, session metadata, and fused behavioral + physiological highlights.</li>
-              <li>Interpret &amp; annotate — drill into modalities, notes, and comparison over time where available.</li>
-              <li>Decide next actions — referral, watchful waiting, or repeat screening with clearer baselines.</li>
-            </ol>
-          </div>
-        </div>
-        <figure class="screen-caption-block">
-          <img src="owlet.png" alt="Owlet mobile neurological screening—caregiver-oriented UI">
-          <figcaption>Visual direction for the mobile screening experience: calm visual language and focus-friendly layouts that keep caregiver attention on the child, not the chrome.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
   <!-- Next Steps -->
   <section class="neuro-section">
     <div class="container">
@@ -481,5 +706,32 @@ EMAIL: ysher@uci.edu
     </div>
   </section>
 
+  <script>
+    // Play videos when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+      const videos = document.querySelectorAll('video');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.5 // Video plays when 50% visible
+      };
+
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }, observerOptions);
+
+      videos.forEach(video => {
+        videoObserver.observe(video);
+      });
+    });
+  </script>
 </body>
 </html>
