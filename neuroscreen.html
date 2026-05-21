@@ -167,6 +167,24 @@ EMAIL: ysher@uci.edu
     .neuro-section.alt {
       background-color: #fafafa;
     }
+
+    /* Tighter gap between Problem and My Role */
+    .neuro-section.alt + .project-details {
+      padding-top: 32px;
+    }
+
+    .neuro-section.alt:has(+ .project-details) {
+      padding-bottom: 32px;
+    }
+
+    /* Tighter gap between Research Insights and Design Challenges */
+    .neuro-section.alt + .neuro-section.alt {
+      padding-top: 32px;
+    }
+
+    .neuro-section.alt:has(+ .neuro-section.alt) {
+      padding-bottom: 32px;
+    }
     
     .neuro-section-inner {
       max-width: 800px;
@@ -338,14 +356,20 @@ EMAIL: ysher@uci.edu
       max-width: 960px;
     }
 
+    .po-wide > h2,
+    .po-wide > .section-lede {
+      text-align: center;
+    }
+
     .po-subsection {
       padding: 2.75rem 0;
       border-top: 1px solid #e8eaec;
+      text-align: center;
     }
 
     .po-subsection:first-of-type {
       border-top: none;
-      padding-top: 1.25rem;
+      padding-top: 3.5rem;
     }
 
     .po-label {
@@ -358,11 +382,45 @@ EMAIL: ysher@uci.edu
     }
 
     .po-title {
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       font-weight: 600;
       color: #1a2633;
-      margin: 0 0 0.65rem;
+      margin: 0 0 3.5rem;
       letter-spacing: -0.01em;
+    }
+
+    /* Row of screenshots only */
+    .po-images-row {
+      display: flex;
+      gap: 4rem;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: 7rem;
+      flex-wrap: wrap;
+    }
+
+    .po-images-row figure {
+      margin: 0;
+      line-height: 0;
+    }
+
+    .po-images-row img {
+      height: 520px;
+      width: auto;
+      border-radius: 24px;
+      display: block;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+    }
+
+    /* Description + video two-column row */
+    .po-bottom-row {
+      display: grid;
+      grid-template-columns: minmax(0, 260px) auto;
+      gap: 8rem;
+      align-items: center;
+      text-align: left;
+      width: fit-content;
+      margin: 0 auto;
     }
 
     .po-desc {
@@ -370,75 +428,50 @@ EMAIL: ysher@uci.edu
       color: #555;
       line-height: 1.65;
       margin: 0;
+      max-width: 260px;
+      text-align: center;
     }
 
-    .po-content-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2.5rem;
-      align-items: center;
-      margin-bottom: 2rem;
-    }
-
-    .po-text {
+    .po-video-item {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      align-items: center;
     }
 
-    .po-screens {
-      display: flex;
-      gap: 0.75rem;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: flex-start;
-    }
-
-    .po-screens figure {
-      margin: 0;
-      line-height: 0;
-    }
-
-    .po-screens img {
-      height: 360px;
+    .po-video-item video {
+      height: 520px;
       width: auto;
       border-radius: 24px;
       display: block;
       box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
     }
 
-    .po-video-wrap {
-      max-width: 260px;
-      margin: 0 auto;
+    .po-video-caption {
+      font-size: 0.82rem;
+      color: #888;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+      max-width: 180px;
       text-align: center;
     }
 
-    .po-video-wrap video {
-      width: 100%;
-      border-radius: 24px;
-      display: block;
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
-    }
-
-    .po-video-caption {
-      font-size: 0.88rem;
-      color: #888;
-      margin-top: 0.65rem;
-      line-height: 1.5;
+    /* Section with no images: center video alone */
+    .po-bottom-row.no-images {
+      grid-template-columns: 1fr;
+      justify-items: center;
     }
 
     @media (max-width: 768px) {
-      .po-content-row {
+      .po-images-row img {
+        height: 220px;
+      }
+
+      .po-bottom-row {
         grid-template-columns: 1fr;
-        gap: 1.25rem;
       }
 
-      .po-screens img {
-        height: 260px;
-      }
-
-      .po-video-wrap {
-        max-width: 200px;
+      .po-video-item video {
+        height: 220px;
       }
     }
   </style>
@@ -454,7 +487,7 @@ EMAIL: ysher@uci.edu
       <ul class="nav-menu">
         <li><a href="index.html#projects">Projects</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="Christine%27s%20Resume%202026%20copy.pdf" target="_blank">Resume</a></li>
+        <li><a href="Christine%27s%20Resume%202026%20copy%202.pdf" target="_blank">Resume</a></li>
       </ul>
     </div>
   </nav>
@@ -524,102 +557,92 @@ EMAIL: ysher@uci.edu
 
         <!-- A -->
         <div class="po-subsection">
-          <div class="po-content-row">
-            <div class="po-text">
-              <p class="po-label">A · Screening Experience</p>
-              <h3 class="po-title">Core Feature — Camera-Guided Session</h3>
-              <p class="po-desc">The primary differentiator. Caregivers are guided through a standardized screening session at home using their phone camera. The UX prioritizes calm, minimal prompting while the system captures behavioral and physiological signal.</p>
-            </div>
-            <div class="po-screens">
-              <figure><img src="homescreen.png" alt="Home screen"></figure>
-              <figure><img src="camerascreening.png" alt="Camera screening screen"></figure>
-            </div>
+          <p class="po-label">A · Screening Experience</p>
+          <h3 class="po-title">Core Feature — Camera-Guided Session</h3>
+          <div class="po-images-row">
+            <figure><img src="homescreen.png" alt="Home screen"></figure>
+            <figure><img src="camerascreening.png" alt="Camera screening screen"></figure>
           </div>
-          <div class="po-video-wrap">
-            <video muted loop playsinline>
-              <source src="troubleshootingflow copy.mov" type="video/mp4">
-            </video>
-            <p class="po-video-caption">Troubleshooting flow — guides caregivers through camera and positioning issues without losing the session.</p>
+          <div class="po-bottom-row">
+            <p class="po-desc">The primary differentiator. Caregivers are guided through a standardized screening session at home using their phone camera. The UX prioritizes calm, minimal prompting while the system captures behavioral and physiological signal.</p>
+            <div class="po-video-item">
+              <video muted loop playsinline>
+                <source src="troubleshootingflow copy.mov" type="video/mp4">
+              </video>
+              <p class="po-video-caption">Troubleshooting flow — guides caregivers through camera and positioning issues without losing the session.</p>
+            </div>
           </div>
         </div>
 
         <!-- B -->
         <div class="po-subsection">
-          <div class="po-content-row">
-            <div class="po-text">
-              <p class="po-label">B &middot; Account &amp; Onboarding</p>
-              <h3 class="po-title">Account Creation &amp; Login</h3>
-              <p class="po-desc">Kept intentionally lightweight. Onboarding is secondary to the screening experience, so friction here was minimized.</p>
-            </div>
-            <div class="po-screens">
-              <figure><img src="createacc.png" alt="Create account screen"></figure>
-              <figure><img src="createaccinfo copy.png" alt="Filled form state"></figure>
-              <figure><img src="login copy.png" alt="Login screen"></figure>
-            </div>
+          <p class="po-label">B &middot; Account &amp; Onboarding</p>
+          <h3 class="po-title">Account Creation &amp; Login</h3>
+          <div class="po-images-row">
+            <figure><img src="createacc.png" alt="Create account screen"></figure>
+            <figure><img src="createaccinfo copy.png" alt="Filled form state"></figure>
+            <figure><img src="login copy.png" alt="Login screen"></figure>
           </div>
-          <div class="po-video-wrap">
-            <video muted loop playsinline>
-              <source src="createaccflow copy.mov" type="video/mp4">
-            </video>
-            <p class="po-video-caption">Account creation flow end-to-end.</p>
+          <div class="po-bottom-row">
+            <p class="po-desc">Kept intentionally lightweight. Onboarding is secondary to the screening experience, so friction here was minimized.</p>
+            <div class="po-video-item">
+              <video muted loop playsinline>
+                <source src="createaccflow copy.mov" type="video/mp4">
+              </video>
+              <p class="po-video-caption">Account creation flow end-to-end.</p>
+            </div>
           </div>
         </div>
 
         <!-- C -->
         <div class="po-subsection">
-          <div class="po-content-row">
-            <div class="po-text">
-              <p class="po-label">C &middot; Child Profile Management</p>
-              <h3 class="po-title">Switching Between Children</h3>
-              <p class="po-desc">A bottom sheet pattern that handles multi-child families cleanly — surfacing the right profile before a session without navigating to a separate settings page.</p>
-            </div>
-            <div class="po-screens">
-              <figure><img src="switchchild copy.png" alt="Switch child bottom sheet"></figure>
-            </div>
+          <p class="po-label">C &middot; Child Profile Management</p>
+          <h3 class="po-title">Switching Between Children</h3>
+          <div class="po-images-row">
+            <figure><img src="switchchild copy.png" alt="Switch child bottom sheet"></figure>
           </div>
-          <div class="po-video-wrap">
-            <video muted loop playsinline>
-              <source src="switchchild copy.mov" type="video/mp4">
-            </video>
-            <p class="po-video-caption">Child switching flow.</p>
+          <div class="po-bottom-row">
+            <p class="po-desc">A bottom sheet pattern that handles multi-child families cleanly — surfacing the right profile before a session without navigating to a separate settings page.</p>
+            <div class="po-video-item">
+              <video muted loop playsinline>
+                <source src="switchchild copy.mov" type="video/mp4">
+              </video>
+              <p class="po-video-caption">Child switching flow.</p>
+            </div>
           </div>
         </div>
 
         <!-- D -->
         <div class="po-subsection">
-          <div class="po-content-row">
-            <div class="po-text">
-              <p class="po-label">D &middot; Results &amp; Longitudinal Tracking</p>
-              <h3 class="po-title">Past Screenings &amp; Notifications</h3>
-              <p class="po-desc">Makes the product feel clinically persistent — not a one-time demo but an ongoing tool. Results are stored, reviewable, and paired with notifications that prompt action without alarming tone.</p>
-            </div>
-            <div class="po-screens">
-              <figure><img src="pastscreening copy.png" alt="Past screenings"></figure>
-              <figure><img src="notif copy.png" alt="Notifications screen"></figure>
-            </div>
+          <p class="po-label">D &middot; Results &amp; Longitudinal Tracking</p>
+          <h3 class="po-title">Past Screenings &amp; Notifications</h3>
+          <div class="po-images-row">
+            <figure><img src="pastscreening copy.png" alt="Past screenings"></figure>
+            <figure><img src="notif copy.png" alt="Notifications screen"></figure>
           </div>
-          <div class="po-video-wrap">
-            <video muted loop playsinline>
-              <source src="savedscreening copy.mov" type="video/mp4">
-            </video>
-            <p class="po-video-caption">Saved screening history and longitudinal tracking flow.</p>
+          <div class="po-bottom-row">
+            <p class="po-desc">Makes the product feel clinically persistent — not a one-time demo but an ongoing tool. Results are stored, reviewable, and paired with notifications that prompt action without alarming tone.</p>
+            <div class="po-video-item">
+              <video muted loop playsinline>
+                <source src="savedscreening copy.mov" type="video/mp4">
+              </video>
+              <p class="po-video-caption">Saved screening history and longitudinal tracking flow.</p>
+            </div>
           </div>
         </div>
 
         <!-- E -->
         <div class="po-subsection">
-          <div class="po-content-row">
-            <div class="po-text">
-              <p class="po-label">E &middot; Settings &amp; Support</p>
-              <h3 class="po-title">Settings Flow</h3>
-              <p class="po-desc">Kept brief — focused on device permissions, notification preferences, and support access relevant to the screening context.</p>
+          <p class="po-label">E &middot; Settings &amp; Support</p>
+          <h3 class="po-title">Settings Flow</h3>
+          <div class="po-bottom-row">
+            <p class="po-desc">Kept brief — focused on device permissions, notification preferences, and support access relevant to the screening context.</p>
+            <div class="po-video-item">
+              <video muted loop playsinline>
+                <source src="settingsflow copy.mov" type="video/mp4">
+              </video>
+              <p class="po-video-caption">Settings and support flow.</p>
             </div>
-          </div>
-          <div class="po-video-wrap">
-            <video muted loop playsinline>
-              <source src="settingsflow copy.mov" type="video/mp4">
-            </video>
-            <p class="po-video-caption">Settings and support flow.</p>
           </div>
         </div>
 
