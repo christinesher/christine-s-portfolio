@@ -553,7 +553,7 @@ EMAIL: ysher@uci.edu
     <div class="container">
       <div class="neuro-section-inner po-wide">
         <h2>Product Overview</h2>
-        <p class="section-lede">A walkthrough of the full experience — from first-time setup to longitudinal tracking.</p>
+        <p class="section-lede">A walkthrough of the full experience — from home page, screening experience, account creation, child profile management, past screenings, and settings.</p>
 
         <!-- A -->
         <div class="po-subsection">
@@ -564,7 +564,7 @@ EMAIL: ysher@uci.edu
             <figure><img src="camerascreening.png" alt="Camera screening screen"></figure>
           </div>
           <div class="po-bottom-row">
-            <p class="po-desc">The primary differentiator. Caregivers are guided through a standardized screening session at home using their phone camera. The UX prioritizes calm, minimal prompting while the system captures behavioral and physiological signal.</p>
+            <p class="po-desc">Surfaces a self-serve troubleshooting menu without losing the child's spot — tapping the alert icon pulls up common fixes (audio, frozen screen, connectivity, timeout) with step-by-step instructions, then drops straight back into the same video. No restart, no re-recording, and a 'contact us' fallback if the fix doesn't work.</p>
             <div class="po-video-item">
               <video muted loop playsinline>
                 <source src="troubleshootingflow copy.mov" type="video/mp4">
@@ -584,7 +584,7 @@ EMAIL: ysher@uci.edu
             <figure><img src="login copy.png" alt="Login screen"></figure>
           </div>
           <div class="po-bottom-row">
-            <p class="po-desc">Kept intentionally lightweight. Onboarding is secondary to the screening experience, so friction here was minimized.</p>
+            <p class="po-desc">Validates in real time — password and confirm-password fields turn green the moment requirements are met, catching errors before submit instead of after. Account creation drops straight into the home screen, no extra confirmation step.</p>
             <div class="po-video-item">
               <video muted loop playsinline>
                 <source src="createaccflow copy.mov" type="video/mp4">
@@ -602,7 +602,7 @@ EMAIL: ysher@uci.edu
             <figure><img src="switchchild copy.png" alt="Switch child bottom sheet"></figure>
           </div>
           <div class="po-bottom-row">
-            <p class="po-desc">A bottom sheet pattern that handles multi-child families cleanly — surfacing the right profile before a session without navigating to a separate settings page.</p>
+            <p class="po-desc">Built for families with multiple kids — a quick-switch bottom sheet swaps the active child, and the whole home screen (screening, history, results) instantly re-scopes to match. No separate logins needed.</p>
             <div class="po-video-item">
               <video muted loop playsinline>
                 <source src="switchchild copy.mov" type="video/mp4">
@@ -621,7 +621,7 @@ EMAIL: ysher@uci.edu
             <figure><img src="notif copy.png" alt="Notifications screen"></figure>
           </div>
           <div class="po-bottom-row">
-            <p class="po-desc">Makes the product feel clinically persistent — not a one-time demo but an ongoing tool. Results are stored, reviewable, and paired with notifications that prompt action without alarming tone.</p>
+            <p class="po-desc">Built for persistence, not a one-time test — progress auto-saves mid-screening, and results are archived with clear review status, notes, and biometric history parents can revisit.</p>
             <div class="po-video-item">
               <video muted loop playsinline>
                 <source src="savedscreening copy.mov" type="video/mp4">
@@ -636,7 +636,7 @@ EMAIL: ysher@uci.edu
           <p class="po-label">E &middot; Settings &amp; Support</p>
           <h3 class="po-title">Settings Flow</h3>
           <div class="po-bottom-row">
-            <p class="po-desc">Kept brief — focused on device permissions, notification preferences, and support access relevant to the screening context.</p>
+            <p class="po-desc">A settings hub that treats sensitive data with care — editable account and child profiles, granular notification controls, and a Privacy & Data page that plainly states what's collected (gaze, ECG, video) and how it's protected.</p>
             <div class="po-video-item">
               <video muted loop playsinline>
                 <source src="settingsflow copy.mov" type="video/mp4">
@@ -669,7 +669,6 @@ EMAIL: ysher@uci.edu
     <div class="container">
       <div class="neuro-section-inner">
         <h2>Design Challenges</h2>
-        <p class="section-lede">Depth of thinking matters more than a roadmap checklist—these tensions shaped the direction of the product.</p>
         <ul class="neuro-callout-list">
           <li><strong>Designing for infants—the indirect user.</strong> Every screen must work for caregivers while encoding behaviors the system needs from a child who cannot follow instructions.</li>
           <li><strong>Caregiver usability vs. clinical rigor.</strong> The experience must feel achievable at home without diluting protocols to the point of useless data.</li>
@@ -684,23 +683,22 @@ EMAIL: ysher@uci.edu
     <div class="container">
       <div class="neuro-section-inner">
         <h2>Key Decisions &amp; Tradeoffs</h2>
-        <p class="section-lede">Explicit tradeoffs recruiters and hiring managers look for—documented here the same way as on my shipped work.</p>
         <div class="tradeoff-grid">
           <div class="tradeoff-card">
-            <strong>Simplicity vs. data accuracy</strong>
-            <span>Fewer steps reduce drop-off but can skip calibration that improves signal. The product bias is toward fewer, higher-quality captures over rushed completions.</span>
+            <strong>Resumability vs. interface simplicity</strong>
+            <span>Every exit point got its own reassurance and recovery state instead of one generic "are you sure?" — more modal states to design, but it protects a capture that took real effort to get rather than letting it evaporate.</span>
           </div>
           <div class="tradeoff-card">
-            <strong>Real-time feedback vs. processing reliability</strong>
-            <span>Live cues can reassure caregivers; heavy real-time computation risks instability on consumer hardware. Owlet favors dependable capture first, then progressive disclosure of status.</span>
+            <strong>Self-serve troubleshooting vs. a single error screen</strong>
+            <span>Built per-issue recovery paths instead of one catch-all error message, so caregivers can fix common problems themselves without restarting the session. More content to write and test, but it keeps sessions moving instead of asking a stressed parent to redo one.</span>
           </div>
           <div class="tradeoff-card">
-            <strong>Clinical detail vs. caregiver readability</strong>
-            <span>Clinicians need parameters and context; families need empathy and clarity. The UI separates expert layers while keeping a single coherent story.</span>
+            <strong>Real-time validation vs. calm tone</strong>
+            <span>Account fields validate as you type instead of dumping errors on submit, so the app doesn't punish caregivers with a wall of red right after they've already gotten their child through the hard part.</span>
           </div>
           <div class="tradeoff-card">
-            <strong>Speed to insight vs. validation burden</strong>
-            <span>Early development prioritizes traceability and ethical guardrails over promising speed we cannot yet defend empirically.</span>
+            <strong>Granular controls vs. simple defaults</strong>
+            <span>Split notifications into four distinct toggles instead of one switch, and named exact data types in the privacy disclosure instead of generic boilerplate. More setup surface to design, but it lets caregivers opt out of what they don't want without losing visibility into what's clinically relevant.</span>
           </div>
         </div>
       </div>
@@ -712,7 +710,7 @@ EMAIL: ysher@uci.edu
     <div class="container">
       <div class="neuro-section-inner">
         <h2>Next Steps</h2>
-        <p class="section-lede">Roadmap framed as product risk reduction—not a generic todo list.</p>
+        <p class="section-lede">Roadmap for the product.</p>
         <ul class="neuro-callout-list">
           <li>Usability testing with caregivers in realistic home conditions.</li>
           <li>Sharpening clarity of results and uncertainty for non-expert readers.</li>
